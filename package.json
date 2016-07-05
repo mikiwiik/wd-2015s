@@ -2,6 +2,9 @@
   "name": "wd2015s",
   "private": true,
   "version": "0.0.0",
+  "dependencies": {
+    "epub": "0.1.6"
+  },
   "devDependencies": {
     "chai": "~1.8.0",
     "mocha": "2.0.1"
