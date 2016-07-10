@@ -12,4 +12,10 @@ describe('sanat()', function () {
             .to.equal('Hello World!');
     });
 
+    it('Splits a string into words', function () {
+        expect(
+            sanat.getWords('Hello, Wörld'))
+            .to.deep.equal(['Hello', 'Wörld']);
+    });
+
 });
