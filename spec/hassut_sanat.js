@@ -9,7 +9,16 @@ describe('parseText()', function () {
     it('Removes <p> tags from single-line entry', function () {
         expect(
             sanat.parseText('<p>Hello World!</p>'))
-            .to.equal('Hello World!');
+            .to.deep.equal(['Hello World!']);
+    });
+    it('Multi-line <p>:s are returned as line per array element.', function () {
+        expect(
+            sanat.parseText('<h2 id="luku2">Toinen luku</h2>' +
+                '<p class="bt3">' +
+                'Pukkila kävelee' +
+                '</p>' +
+                '<p class="bt1">Nipistetty mies</p>'))
+            .to.deep.equal(['Pukkila kävelee', 'Nipistetty mies']);
     });
 });
 

@@ -4,9 +4,10 @@ var xpath = require('xpath'),
 module.exports = {
     parseText: function (html) {
         var doc = new dom().parseFromString(html);
-        var nodes = xpath.select("//p/text()", doc);
-        return nodes.toString();
-        // node.data = Hello World!
+        return xpath.select("//p/text()", doc)
+            .map(function (node) {
+                return node.data;
+            });
     },
     getWords: function (string) {
         // Note JS does not support unicode \W
