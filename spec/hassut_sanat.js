@@ -8,7 +8,7 @@ describe('sanat()', function () {
 
     it('Removes <p> tags from single-line entry', function () {
         expect(
-            sanat('<p>Hello World!</p>'))
+            sanat.parseText('<p>Hello World!</p>'))
             .to.equal('Hello World!');
     });
 
