@@ -13,12 +13,16 @@ describe('parseText()', function () {
     });
     it('Multi-line <p>:s are returned as line per array element.', function () {
         expect(
-            sanat.parseText('<h2 id="luku2">Toinen luku</h2>' +
-                '<p class="bt3">' +
+            sanat.parseText('<p class="bt3">' +
                 'Pukkila kävelee' +
                 '</p>' +
                 '<p class="bt1">Nipistetty mies</p>'))
             .to.deep.equal(['Pukkila kävelee', 'Nipistetty mies']);
+    });
+    it('Ignores non-<p> lines.', function () {
+        expect(
+            sanat.parseText('<h2 id="luku2">Toinen luku</h2>'))
+            .to.deep.equal([]);
     });
 });
 
