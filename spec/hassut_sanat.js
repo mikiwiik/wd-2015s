@@ -14,8 +14,9 @@ describe('sanat()', function () {
 
     it('Splits a string into words', function () {
         expect(
-            sanat.getWords('Hello, Wörld'))
+            sanat.getWords('Hello, Wörld!'))
             .to.deep.equal(['Hello', 'Wörld']);
+        // Fails. Returns array with a final empty element, most likely due to the !
     });
 
 });
