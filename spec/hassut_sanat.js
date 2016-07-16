@@ -41,9 +41,21 @@ describe('getWords()', function () {
 });
 
 describe('getWords()', function () {
+    it('no vowels gets 0 points', function () {
+        expect(
+            sanat.countPoints('jkl')).to.equal(0)
+    });
+    it('empty string gets 0 points', function () {
+        expect(
+            sanat.countPoints('')).to.equal(0)
+    });
+    it('ja gets 2 points', function () {
+        expect(
+            sanat.countPoints('ja')).to.equal(2)
+    });
     it('koira gets 10 points', function () {
         expect(
-            sanat.countPoints('koira')).to.equal(10)
+            sanat.countPoints('Koira')).to.equal(10)
     });
     it('hääyöaie gets 896 points', function () {
         expect(
