@@ -11,6 +11,11 @@ module.exports = {
     },
     getWords: function (string) {
         // Note JS does not support unicode \W
-        return string.split(/[\s,.!?-]+/g);
+        return string
+            .split(/[\s,.!?-]+/g)
+            // Remove empty cells (most likely due to trailing punctuation marks)
+            .filter(function (value) {
+                return value.length > 0;
+            });
     }
 };

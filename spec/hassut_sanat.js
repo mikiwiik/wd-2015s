@@ -31,7 +31,6 @@ describe('getWords()', function () {
         expect(
             sanat.getWords('Hello, Wörld!'))
             .to.deep.equal(['Hello', 'Wörld']);
-        // Fails. Returns array with a final empty element, most likely due to the !
     });
 
 });
