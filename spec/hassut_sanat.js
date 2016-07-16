@@ -27,6 +27,11 @@ describe('parseText()', function () {
 });
 
 describe('getWords()', function () {
+    it('Whitespace is ignored.', function () {
+        expect(
+            sanat.getWords("\t This  is \n\t a     test\n\t"))
+            .to.deep.equal(['This', 'is', 'a', 'test']);
+    });
     it('Splits a string into words', function () {
         expect(
             sanat.getWords('Hello, Wörld!'))
