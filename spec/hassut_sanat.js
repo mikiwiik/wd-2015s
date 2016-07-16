@@ -39,3 +39,14 @@ describe('getWords()', function () {
     });
 
 });
+
+describe('getWords()', function () {
+    it('koira gets 10 points', function () {
+        expect(
+            sanat.countPoints('koira')).to.equal(10)
+    });
+    it('hääyöaie gets 896 points', function () {
+        expect(
+            sanat.countPoints('hääyöaie')).to.equal(896)
+    });
+});
