@@ -17,5 +17,16 @@ module.exports = {
             .filter(function (value) {
                 return value.length > 0;
             });
+    },
+    countPoints: function (word) {
+        var points = 0;
+        var matches = word.match(/([^qwrtpsdfghjklzxcvbnm]+)/gi);
+        if (matches) {
+            matches.forEach(function (group) {
+                var n = group.length;
+                points += n * Math.pow(2, n);
+            });
+        }
+        return points;
     }
 };
