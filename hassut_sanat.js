@@ -35,7 +35,7 @@ module.exports = {
      */
     countPoints: function (word) {
         var points = 0;
-        var matches = word.match(/([^qwrtpsdfghjklzxcvbnm]+)/gi);
+        var matches = word.match(/([^0-9/()’qwrtpsdfghjklzxcvbnm]+)/gi);
         if (matches) {
             matches.forEach(function (group) {
                 var n = group.length;
