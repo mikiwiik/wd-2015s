@@ -58,6 +58,10 @@ describe('getWords()', function () {
         expect(
             sanat.countPoints('(1/16)')).to.equal(0)
     });
+    it('Apostrophe gets 0 points', function () {
+        expect(
+            sanat.countPoints('’')).to.equal(0)
+    });
 
     it('ja gets 2 points', function () {
         expect(
