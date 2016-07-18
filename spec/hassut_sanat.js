@@ -49,6 +49,16 @@ describe('getWords()', function () {
         expect(
             sanat.countPoints('')).to.equal(0)
     });
+
+    it('number string gets 0 points', function () {
+        expect(
+            sanat.countPoints('1933')).to.equal(0)
+    });
+    it('Fraction gets 0 points', function () {
+        expect(
+            sanat.countPoints('(1/16)')).to.equal(0)
+    });
+
     it('ja gets 2 points', function () {
         expect(
             sanat.countPoints('ja')).to.equal(2)
