@@ -1,2 +1,11 @@
 # To find words with 4 or more consequetive vowels, do
-unzip -c Alastalon-Salissa.epub| egrep -o -e '\W*(\w*[aeiouyåäö]{4,}\w*)\W*' > words_with_4_or_more_wovels.txt
+    unzip -c Alastalon-Salissa.epub| egrep -o -e '\W*(\w*[aeiouyåäö]{4,}\w*)\W*' > words_with_4_or_more_wovels.txt
+
+n	Points
+1	2
+2	8
+3	24
+4	64
+5	160
+6	384
+7	896
