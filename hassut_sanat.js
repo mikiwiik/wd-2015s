@@ -2,6 +2,10 @@ var xpath = require('xpath'),
     dom = require('xmldom').DOMParser;
 
 module.exports = {
+    highScore: {
+        words: [],
+        points: 0
+    },
     /**
      * Parses the contents of <p> tags from provided HTML.
      * @param html
@@ -43,5 +47,24 @@ module.exports = {
             });
         }
         return points;
+    },
+    /**
+     * Processes the given word, updating high score
+     * @param word
+     * @param chapterId
+     */
+    processWord: function (word, chapterId) {
+        var points = this.countPoints(word);
+        if (points >= this.highScore.points) {
+            if (points > this.highScore.points) {
+                this.highScore.points = points;
+                this.highScore.words = [];
+            }
+            this.highScore.words.push({
+                word: word,
+                chapter: chapterId
+            });
+            console.log(this.highScore);
+        } 
     }
 };
