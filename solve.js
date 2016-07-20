@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
+var epubfile = 'Alastalon-Salissa.epub';
+
 var EPub = require("epub"),
     sanat = require('./hassut_sanat');
-
-var epubfile = 'Alastalon-Salissa.epub';
 
 var epub = new EPub(epubfile, "images", "chapters");
 epub.on("end", function () {
