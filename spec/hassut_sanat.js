@@ -76,3 +76,38 @@ describe('getWords()', function () {
             sanat.countPoints('hääyöaie')).to.equal(896)
     });
 });
+
+describe('processWord()', function () {
+    describe('Adding words of equal points', function () {
+        before(function () {
+            sanat.processWord('ja', 1);
+            sanat.processWord('jo', 2);
+        });
+        it('Adding a word of equal amount of points should retain the previous word', function () {
+            expect(sanat.highScore.words)
+                .to.deep.equal([
+                {word: 'ja', chapter: 1},
+                {word: 'jo', chapter: 2}
+            ]);
+        });
+    });
+
+    describe('Adding words of higher points', function () {
+        before(function () {
+            sanat.processWord('ja', 1);
+            // joo = 8 points
+            sanat.processWord('joo', 2);
+        });
+
+        it('Adding a word of higher points should set the points to the higher', function () {
+            expect(sanat.highScore.points)
+                .to.equal(8);
+        });
+        it('Adding a word of higher points should remove any previous words', function () {
+            expect(sanat.highScore.words)
+                .to.deep.equal([
+                {word: 'joo', chapter: 2}
+            ]);
+        });
+    });
+});
