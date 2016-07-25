@@ -4,7 +4,12 @@ var xpath = require('xpath'),
 module.exports = {
     highScore: {
         words: [],
-        points: 0
+        points: 0,
+        onlyWords: function () {
+            return this.words.map(function (word) {
+                return word.word;
+            })
+        }
     },
     /**
      * Parses the contents of <p> tags from provided HTML.
@@ -64,7 +69,6 @@ module.exports = {
                 word: word,
                 chapter: chapterId
             });
-            console.log(this.highScore);
         } 
     }
 };
